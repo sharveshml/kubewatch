@@ -1,0 +1,28 @@
+apiVersion: kubewatch.io/v1alpha1
+kind: CustomResourceDefinition
+metadata:
+  name: watches.kubewatch.io
+spec:
+  group: kubewatch.io
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                resources:
+                  type: array
+                  items:
+                    type: string
+  scope: Namespaced
+  names:
+    plural: watches
+    singular: watch
+    kind: Watch
+    shortNames:
+      - wtch  
